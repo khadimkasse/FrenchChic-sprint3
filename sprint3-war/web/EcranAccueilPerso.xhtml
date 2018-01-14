@@ -22,7 +22,7 @@ and open the template in the editor.
                 <h1><font color="magenta" size="20"><h:outputText value = "French Chic"/></font></h1>
                  Bonjour #{sessionManagedBeanF.leClient.prenom} #{sessionManagedBeanF.leClient.nom} <br/>
             
-            Le produit du jour est le PATATAZOUK au prix de PATATA0<br/>
+                 Le produit du jour est le #{sessionManagedBeanF.produitDuJour.nom} au prix de #{sessionManagedBeanF.produitDuJour.prix}<br/>
             <h:panelGrid id="interieur" columns="2">
             Quantité <h:inputText 
                 title="Saisir une valeur entiere et positive d'ID Client"

@@ -12,26 +12,20 @@ import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import metier.ClientB;
+import metier.*;
 @ManagedBean
 @Named(value = "sessionManagedBeanF")
 @SessionScoped
 public class SessionManagedBeanF implements Serializable {
 
  @EJB
- //private SessionClientInterface gestionClientRemote;
  private SessionClientInterface gestionClientRemote; 
  private ClientB leClient =new ClientB();
  
- private int testVal =0;
+ @EJB
+ private ProduitSessionBeanLocal gestionProduit;
+ private Produit produitDuJour ;
  
- public int getTestVal(){
-     return this.testVal;
- }
- 
- public void setTestVal(int v){
-     this.testVal=v;
- }
  public SessionManagedBeanF() throws NamingException{
    // ClientB leClient = new ClientB();
    
@@ -52,6 +46,20 @@ public class SessionManagedBeanF implements Serializable {
      leClient = gestionClientRemote.rechercherClientParPseudo(leClient.getPseudo(), leClient.getMotdepasse());
      return "client.trouve";
  }
+
+    public Produit getProduitDuJour() {
+        return produitDuJour;
+    }
+
+    public void setProduitDuJour(Produit produitDuJour) {
+        this.produitDuJour = produitDuJour;
+    }
+
+ public void rechercherProduitDuJour(){
+    produitDuJour = gestionProduit.rechercherProduitDuJour(); 
+}
+ 
+ 
  
  
  
