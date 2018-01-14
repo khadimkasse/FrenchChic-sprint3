@@ -30,14 +30,15 @@ public class Commande implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "NUMERO")
     private String numero;
+    @OneToOne
     @Size(max = 20)
-    @Column(name = "LIGNESDECOMMANDE")
-    @OneToMany
-    private String lignesdecommande;
+    //@Column(name = "LIGNESDECOMMANDE")
+    
+    private Lignedecommande lignesdecommande;
     @Size(max = 20)
-    @Column(name = "CLIENT")
-    @OneToMany
-    private String client;
+    //@Column(name = "CLIENT")
+    @OneToOne
+    private ClientB client;
 
     public Commande() {
     }
@@ -54,19 +55,19 @@ public class Commande implements Serializable {
         this.numero = numero;
     }
 
-    public String getLignesdecommande() {
+    public Lignedecommande getLignesdecommande() {
         return lignesdecommande;
     }
 
-    public void setLignesdecommande(String lignesdecommande) {
+    public void setLignesdecommande(Lignedecommande lignesdecommande) {
         this.lignesdecommande = lignesdecommande;
     }
 
-    public String getClient() {
+    public ClientB getClient() {
         return client;
     }
 
-    public void setClient(String client) {
+    public void setClient(ClientB client) {
         this.client = client;
     }
 

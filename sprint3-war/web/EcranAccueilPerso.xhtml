@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ecran Accueil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--<h:outputStylesheet library="css" name="default.css"/>-->
+    </h:head>
+    <h:body>
+        <center><h:form>
+         <h:panelGrid id = "panel" columns = "1" border = "1"
+            cellpadding = "50" cellspacing = "10">
+            
+            <f:facet name = "header">
+                <h1><font color="magenta" size="20"><h:outputText value = "French Chic"/></font></h1>
+                 Bonjour #{sessionManagedBeanF.leClient.prenom} #{sessionManagedBeanF.leClient.nom} <br/>
+            
+            Le produit du jour est le PATATAZOUK au prix de PATATA0<br/>
+            <h:panelGrid id="interieur" columns="2">
+            Quantité <h:inputText 
+                title="Saisir une valeur entiere et positive d'ID Client"
+                value="DemerDish"
+                requiredMessage="Error: An integer is required."
+                maxlength="4" />
+            </h:panelGrid>
+            </f:facet>
+             <h:commandButton id = "submit" value = "Ajouter le produit au panier"  action="#{SessionManagedBean.modifClient()}"/>
+         </h:panelGrid>
+         </h:form></center>
+    </h:body>
+</html>
+

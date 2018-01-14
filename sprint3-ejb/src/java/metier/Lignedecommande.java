@@ -24,13 +24,22 @@ import javax.validation.constraints.Size;
 public class Lignedecommande implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "PRODUIT")
+    @Column(name = "NUMERO")
+    private String numero;
+    
+    
+    //@Id
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    //@Column(name = "PRODUIT")
     @OneToOne
-    private String produit;
+    private Produit produit;
     @Column(name = "QUANTITE")
     private Integer quantite;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -40,15 +49,15 @@ public class Lignedecommande implements Serializable {
     public Lignedecommande() {
     }
 
-    public Lignedecommande(String produit) {
+    public Lignedecommande(Produit produit) {
         this.produit = produit;
     }
 
-    public String getProduit() {
+    public Produit getProduit() {
         return produit;
     }
 
-    public void setProduit(String produit) {
+    public void setProduit(Produit produit) {
         this.produit = produit;
     }
 

@@ -21,9 +21,15 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Produit.findByNom", query = "SELECT p FROM Produit p WHERE p.nom = :nom")
     , @NamedQuery(name = "Produit.findByPrix", query = "SELECT p FROM Produit p WHERE p.prix = :prix")
     , @NamedQuery(name = "Produit.findByQuantitestock", query = "SELECT p FROM Produit p WHERE p.quantitestock = :quantitestock")
-    , @NamedQuery(name = "Produit.findByEstdujour", query = "SELECT p FROM Produit p WHERE p.estdujour = :estdujour")})
+    , @NamedQuery(name = "Produit.findByEstdujour", query = "SELECT p FROM Produit p WHERE p.estdujour = :estdujour"),
+            @NamedQuery(name = Produit.NamedQueries.TROUVER_PRODUIT_DU_JOUR, 
+                    query = "SELECT pdt FROM Produit pdt WHERE pdt.estdujour=1")
+})
 public class Produit implements Serializable {
 
+    public final class NamedQueries{
+        public static final String TROUVER_PRODUIT_DU_JOUR= "Produit.trouverProduitDuJour";
+    }
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -76,6 +82,10 @@ public class Produit implements Serializable {
 
     public void setEstdujour(Boolean estdujour) {
         this.estdujour = estdujour;
+    }
+    
+    public void retirerDuStock(int qte){
+        this.quantitestock = this.quantitestock-qte;
     }
 
     @Override

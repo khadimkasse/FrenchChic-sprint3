@@ -22,11 +22,17 @@ import javax.validation.constraints.Size;
  * @author Khadim
  */
 @Entity
-@Table(name = "CLIENT")
+@Table(name = "CLIENTB")
+
 @NamedQueries({
-    @NamedQuery(name = "Client.findAll", query = "SELECT c FROM Client c")
-    , @NamedQuery(name = "Client.findByNumero", query = "SELECT c FROM Client c WHERE c.numero = :numero")})
-public class Client implements Serializable {
+    @NamedQuery(name = ClientB.NamedQueries.RECHERCHER_CLIENT_PAR_PSEUDO , 
+            query = "SELECT clt FROM ClientB clt WHERE clt.pseudo=:pseudo AND clt.motdepasse=:motDePasse")
+})
+public class ClientB implements Serializable {
+    
+    public final class NamedQueries{
+        public static final String RECHERCHER_CLIENT_PAR_PSEUDO = "ClientB.rechercherClientParPseudoMdp";
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,39 +41,40 @@ public class Client implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "NUMERO")
     private String numero;
-    @Lob
     @Size(max = 32700)
     @Column(name = "NOM")
     private String nom;
-    @Lob
     @Size(max = 32700)
     @Column(name = "PRENOM")
     private String prenom;
     @Basic(optional = false)
     @NotNull
-    @Lob
     @Size(min = 1, max = 32700)
     @Column(name = "PSEUDO")
     private String pseudo;
     @Basic(optional = false)
     @NotNull
-    @Lob
     @Size(min = 1, max = 32700)
     @Column(name = "MOTDEPASSE")
     private String motdepasse;
 
-    public Client() {
+    public ClientB() {
+        this.motdepasse="bidule";
+        this.nom="test";
     }
 
-    public Client(String numero) {
+    public ClientB(String numero) {
         this.numero = numero;
     }
 
-    public Client(String numero, String pseudo, String motdepasse) {
+    public ClientB(String numero,String prenom,String pseudo, String motdepasse) {
         this.numero = numero;
         this.pseudo = pseudo;
         this.motdepasse = motdepasse;
+        this.prenom=prenom;
     }
+    
+    
 
     public String getNumero() {
         return numero;
@@ -119,10 +126,10 @@ public class Client implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Client)) {
+        if (!(object instanceof ClientB)) {
             return false;
         }
-        Client other = (Client) object;
+        ClientB other = (ClientB) object;
         if ((this.numero == null && other.numero != null) || (this.numero != null && !this.numero.equals(other.numero))) {
             return false;
         }

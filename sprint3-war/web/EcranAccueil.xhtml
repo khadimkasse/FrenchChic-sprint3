@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ecran Accueil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--<h:outputStylesheet library="css" name="default.css"/>-->
+    </h:head>
+    <h:body>
+        <div><center><h:form>
+         <h:panelGrid id = "panel" columns = "1" border = "1"
+            cellpadding = "50" cellspacing = "50">
+            
+            <f:facet name = "header">
+                <h1><font color="magenta" size="20"><h:outputText value = "French Chic"/></font></h1>
+            </f:facet>
+         
+            <h:panelGrid id = "panelInterne" columns = "2" border = "1"
+            cellpadding = "10" cellspacing = "10">
+             
+            <h:outputLabel value ="Pseudo" />
+            <h:inputText id="pseudo" value="#{sessionManagedBeanF.leClient.pseudo}"
+            required="true" requiredMessage="Error: A string  is required."
+             />
+            <h:outputLabel value = "Mot de passe" />
+            <h:inputSecret id="pass" value="#{sessionManagedBeanF.leClient.motdepasse}"/>
+           
+            
+            <f:facet name = "footer">
+               <h:panelGroup style = "display:block; text-align:center">
+                   <h:commandButton id = "submit" value = "S'identifier"  action="#{sessionManagedBeanF.rechercherClientParPseudoMdp()}"/>
+                    <h:commandButton id = "submitAbort" value = "Abandonner"  action="#{sessionManagedBeanF.abort()}"/>
+               </h:panelGroup>
+            </f:facet>
+            </h:panelGrid>
+         </h:panelGrid>
+                </h:form></center></div>
+    </h:body>
+</html>
