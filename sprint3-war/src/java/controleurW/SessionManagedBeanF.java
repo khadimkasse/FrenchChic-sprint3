@@ -20,18 +20,25 @@ public class SessionManagedBeanF implements Serializable {
 
  @EJB
  private SessionClientInterface gestionClientRemote; 
- private ClientB leClient =new ClientB();
+ private ClientB leClient ;
+ 
  
  @EJB
  private ProduitSessionBeanLocal gestionProduit;
  private Produit produitDuJour ;
  
+ @EJB
+ private CommandeSessionBeanLocal gestionCmd;
+ private Commande laCommande;
+ 
  public SessionManagedBeanF() throws NamingException{
-   // ClientB leClient = new ClientB();
-   
-    
+     leClient =new ClientB();
+     produitDuJour = new Produit();
+     laCommande = new Commande();
     Context ctx= (Context) new InitialContext();
     gestionClientRemote=(SessionClientInterface)ctx.lookup("controleur/GCB_JNDI");
+    gestionProduit =(ProduitSessionBeanLocal)ctx.lookup("controleur/PDT_JNDI");
+    gestionCmd =(CommandeSessionBeanLocal)ctx.lookup("controleur/GCMD_JNDI");
  }
  
  public ClientB getLeClient(){
