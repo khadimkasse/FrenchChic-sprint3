@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head> 
+        <title>Récapitulatif de la commande</title>
+        <!--<h:outputStylesheet library="css" name="default.css"/>-->
+        
+    </h:head>
+<h:body>
+
+<!--<h:outputText value="#{jSFManagedBean.leclient.nom}" ></h:outputText>-->
+
+<center><h:form>
+         
+        <p>Félicitations #{jSFManagedBean.leclient.nom} <br/>
+                voici le récapitulatif de votre commande.</p>
+
+
+<table>
+    
+    
+    <colgroup>
+    	<col span="1" width="200"   />
+        <col span="1" width="150"  />
+        <col span="1" width="150"  />
+        <col span="1" width="150" />
+    </colgroup>
+   
+    <thead>
+        <tr style="background-color: magenta" >
+            <th abbr="Lib" scope="col" >Libellé</th>
+            <th abbr="Prix" scope="col">Prix HT</th>
+            <th abbr="Quant" scope="col">Quantité</th>
+            <th abbr="Mont" scope="col">Montant</th>
+        </tr>
+    </thead>
+    
+    
+        <tr style="background-color: #AFAFAF">
+            <td>Pantalon ZOuk par exemple</td>
+            <td> 10$</td>
+            <td>2</td>
+            <td>20$</td>
+        </tr>
+        <tr style="background-color: #CCC">
+            <td>Pyjama ZOuk</td>
+            <td> 5 $</td>
+            <td>2</td>
+            <td>10$</td>
+        </tr>
+        
+    
+</table>
+       <br/> 
+    </h:form>
+    <div>
+        <h:form> 
+            <table>
+                <colgroup>
+                    <col span="2" width="200"  />
+                    <col span="1" width="200"/>
+                </colgroup>
+                <tr>
+                    <td><h:outputText  value ="Total"/></td>
+                    <td style="background-color: #CCC">30 $</td>
+                    
+                </tr>
+               
+            </table>
+            <br/>
+            <h:outputText  value ="Merci de votre visite et à bientôt chez French Chic!"/>
+        </h:form>
+    </div>
+</center>
+
+  
+
+
+    
+</h:body>
+</html>
+
+

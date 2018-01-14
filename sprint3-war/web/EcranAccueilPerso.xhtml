@@ -25,13 +25,13 @@ and open the template in the editor.
                  Le produit du jour est le #{sessionManagedBeanF.produitDuJour.nom} au prix de #{sessionManagedBeanF.produitDuJour.prix}<br/>
             <h:panelGrid id="interieur" columns="2">
             Quantité <h:inputText 
-                title="Saisir une valeur entiere et positive d'ID Client"
-                value="DemerDish"
+                title="Saisir une valeur entiere et positive de quanite a acheter"
+                value="#{sessionManagedBeanF.qteAchetee}"
                 requiredMessage="Error: An integer is required."
                 maxlength="4" />
             </h:panelGrid>
             </f:facet>
-             <h:commandButton id = "submit" value = "Ajouter le produit au panier"  action="#{SessionManagedBean.modifClient()}"/>
+             <h:commandButton id = "submit" value = "Ajouter le produit au panier"  action="#{sessionManagedBeanF.retirerDuSTock()}"/>
          </h:panelGrid>
          </h:form></center>
     </h:body>

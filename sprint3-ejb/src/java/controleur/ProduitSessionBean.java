@@ -18,8 +18,7 @@ public class ProduitSessionBean implements ProduitSessionBeanLocal {
     @Override
     public Produit rechercherProduitDuJour() {
        javax.persistence.Query query = emP.createNamedQuery(Produit.NamedQueries.TROUVER_PRODUIT_DU_JOUR);
-       Produit leProduitDuJour = (Produit)query.getSingleResult();
-       
+       Produit leProduitDuJour = (Produit)query.getSingleResult();     
        return leProduitDuJour;
     }
     

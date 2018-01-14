@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head> 
+        <title>Détail d'un client</title>
+        <!--<h:outputStylesheet library="css" name="default.css"/>-->
+        
+    </h:head>
+<h:body>
+
+<!--<h:outputText value="#{jSFManagedBean.leclient}" ></h:outputText>-->
+
+<center><h:form>
+         
+
+
+
+<table>
+    <caption style="text-align: left" ><h1><font color="magenta">Votre Panier</font></h1></caption>
+    
+    <colgroup>
+    	<col span="1" width="200"   />
+        <col span="1" width="150"  />
+        <col span="1" width="150"  />
+        <col span="1" width="150" />
+    </colgroup>
+   
+    <thead>
+        <tr style="background-color: magenta" >
+            <th abbr="Lib" scope="col" >Libellé</th>
+            <th abbr="Prix" scope="col">Prix HT</th>
+            <th abbr="Quant" scope="col">Quantité</th>
+            <th abbr="Mont" scope="col">Montant</th>
+        </tr>
+    </thead>
+    
+    
+        <tr style="background-color: #AFAFAF">
+            <td>Pantalon ZOuk par exemple</td>
+            <td> 10</td>
+            <td>2</td>
+            <td>20</td>
+        </tr>
+        
+    
+</table>
+       <br/> 
+    </h:form>
+    <div>
+        <h:form> 
+            <table>
+                <colgroup>
+                    <col span="2" width="200"  />
+                    <col span="1" width="200"/>
+                </colgroup>
+                <tr>
+                    <td><h:outputText  value ="Montant Panier"/></td>
+                    <td style="background-color: #CCC">managedBean Res</td>
+                    
+                </tr>
+                <tr>
+                    <td><h:commandButton id = "submit" value = "Valider Panier"  action="#{jSFManagedBean.modifClient()}"/></td>
+                    <td><h:commandButton id = "submitAlt" value = "Quitter"  action="#{jSFManagedBean.modifClient()}"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </div>
+</center>
+
+  
+
+
+    
+</h:body>
+</html>
+

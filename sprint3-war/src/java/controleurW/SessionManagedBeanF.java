@@ -27,9 +27,14 @@ public class SessionManagedBeanF implements Serializable {
  private ProduitSessionBeanLocal gestionProduit;
  private Produit produitDuJour ;
  
+<<<<<<< HEAD
  @EJB
  private CommandeSessionBeanLocal gestionCmd;
  private Commande laCommande;
+=======
+ // Attribute to retrieve the value of user input
+ private int qteAchetee; 
+>>>>>>> 3630f575f88cf621a8402b81ab606a39f875a847
  
  public SessionManagedBeanF() throws NamingException{
      leClient =new ClientB();
@@ -62,11 +67,22 @@ public class SessionManagedBeanF implements Serializable {
         this.produitDuJour = produitDuJour;
     }
 
+    public int getQteAchetee() {
+        return qteAchetee;
+    }
+
+    public void setQteAchetee(int qteAchetee) {
+        this.qteAchetee = qteAchetee;
+    }
+    
  public void rechercherProduitDuJour(){
     produitDuJour = gestionProduit.rechercherProduitDuJour(); 
 }
  
- 
+ public String retirerDuSTock(){
+     gestionProduit.retirerDuSTock(qteAchetee, produitDuJour);
+     return "quantite.retiree";
+ }
  
  
  
