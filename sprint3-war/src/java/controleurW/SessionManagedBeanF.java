@@ -26,6 +26,9 @@ public class SessionManagedBeanF implements Serializable {
  private ProduitSessionBeanLocal gestionProduit;
  private Produit produitDuJour ;
  
+ // Attribute to retrieve the value of user input
+ private int qteAchetee; 
+ 
  public SessionManagedBeanF() throws NamingException{
    // ClientB leClient = new ClientB();
    
@@ -55,11 +58,22 @@ public class SessionManagedBeanF implements Serializable {
         this.produitDuJour = produitDuJour;
     }
 
+    public int getQteAchetee() {
+        return qteAchetee;
+    }
+
+    public void setQteAchetee(int qteAchetee) {
+        this.qteAchetee = qteAchetee;
+    }
+    
  public void rechercherProduitDuJour(){
     produitDuJour = gestionProduit.rechercherProduitDuJour(); 
 }
  
- 
+ public String retirerDuSTock(){
+     gestionProduit.retirerDuSTock(qteAchetee, produitDuJour);
+     return "quantite.retiree";
+ }
  
  
  
