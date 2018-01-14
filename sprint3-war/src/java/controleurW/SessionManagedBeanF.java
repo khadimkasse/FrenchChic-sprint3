@@ -13,7 +13,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import metier.*;
-@ManagedBean
+//@ManagedBean
 @Named(value = "sessionManagedBeanF")
 @SessionScoped
 public class SessionManagedBeanF implements Serializable {
@@ -47,6 +47,7 @@ public class SessionManagedBeanF implements Serializable {
     gestionClientRemote=(SessionClientInterface)ctx.lookup("controleur/GCB_JNDI");
     gestionProduit =(ProduitSessionBeanLocal)ctx.lookup("controleur/PDT_JNDI");
     gestionCmd =(CommandeSessionBeanLocal)ctx.lookup("controleur/GCMD_JNDI");
+    gestionLigneDeCommande = (lignesDeCmdSessionBeanLocal)ctx.lookup("controleur/LCMD_JNDI");
  }
  
  public ClientB getLeClient(){
@@ -86,8 +87,19 @@ public class SessionManagedBeanF implements Serializable {
      gestionProduit.retirerDuSTock(qteAchetee, produitDuJour);
      return "quantite.retiree";
  }
+
+    public Lignedecommande getLaLigneDeCommande() {
+        return laLigneDeCommande;
+    }
+
+    public void setLaLigneDeCommande(Lignedecommande laLigneDeCommande) {
+        this.laLigneDeCommande = laLigneDeCommande;
+    }
  
- 
+ public void creerLigneDeCmd(){
+     laLigneDeCommande = new Lignedecommande(produitDuJour, qteAchetee,"s");
+     laLigneDeCommande = gestionLigneDeCommande.creerLigneDeCommande(laLigneDeCommande);
+ }
  
  private String getParamId(String nomParam) {
 FacesContext context = FacesContext.getCurrentInstance();

@@ -32,7 +32,9 @@ and open the template in the editor.
             </h:panelGrid>
             </f:facet>
              <h:panelGrid columns="2">
-             <h:commandButton id = "submit" value = "Ajouter le produit au panier"  action="#{sessionManagedBeanF.retirerDuSTock()}"/>
+             <h:commandButton id = "submit" value = "Ajouter le produit au panier"  action="#{sessionManagedBeanF.retirerDuSTock()}">
+                 <f:actionListener binding="#{sessionManagedBeanF.creerLigneDeCmd()}" />
+                 </h:commandButton>
               <h:commandButton id = "submitAbort" value = "Abandonner"  action="abort"/>
               </h:panelGrid>
          </h:panelGrid>

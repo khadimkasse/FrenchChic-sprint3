@@ -39,7 +39,9 @@ public class Lignedecommande implements Serializable {
     @Size(min = 1, max = 20)
     //@Column(name = "PRODUIT")
     @OneToOne
+    @JoinColumn(name="NOM", referencedColumnName="NUMERO")
     private Produit produit;
+   
     @Column(name = "QUANTITE")
     private Integer quantite;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -48,6 +50,13 @@ public class Lignedecommande implements Serializable {
 
     public Lignedecommande() {
     }
+    
+    public Lignedecommande(Produit leProduit,int quantite,String s){
+		this.produit = leProduit;
+		this.quantite = quantite;
+                this.montant = quantite * leProduit.getPrix();
+                numero =s;
+	}
 
     public Lignedecommande(Produit produit) {
         this.produit = produit;
