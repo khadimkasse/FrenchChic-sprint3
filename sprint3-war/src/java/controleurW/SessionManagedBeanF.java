@@ -35,6 +35,9 @@ public class SessionManagedBeanF implements Serializable {
  private CommandeSessionBeanLocal gestionCmd;
  private Commande laCommande;
 
+ @EJB
+ private lignesDeCmdSessionBeanLocal gestionLigneDeCommande;
+ private Lignedecommande laLigneDeCommande ;
  
  public SessionManagedBeanF() throws NamingException{
      leClient =new ClientB();
