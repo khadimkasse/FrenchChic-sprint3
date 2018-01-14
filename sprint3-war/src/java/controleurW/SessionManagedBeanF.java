@@ -107,7 +107,7 @@ public class SessionManagedBeanF implements Serializable {
     
  
  public void creerLigneDeCmd(){
-     laLigneDeCommande = new Lignedecommande(produitDuJour, qteAchetee,produitDuJour.getNom());
+     laLigneDeCommande = new Lignedecommande(produitDuJour, qteAchetee,"saBope");
      laLigneDeCommande = gestionLigneDeCommande.creerLigneDeCommande(laLigneDeCommande);
  }
  
