@@ -15,6 +15,16 @@ http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 </navigation-rule>
 
 <navigation-rule>
+    <from-view-id>/EcranAccueilPerso.xhtml</from-view-id>
+    <navigation-case>
+    <from-outcome>quantite.retiree</from-outcome>
+    <to-view-id>/EcranPanier.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
+
+
+
+<navigation-rule>
 <from-view-id>/pageClient.xhtml</from-view-id>
 <navigation-case>
     <from-outcome>client.modifie</from-outcome>
