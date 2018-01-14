@@ -27,14 +27,14 @@ public class SessionManagedBeanF implements Serializable {
  private ProduitSessionBeanLocal gestionProduit;
  private Produit produitDuJour ;
  
-<<<<<<< HEAD
- @EJB
- private CommandeSessionBeanLocal gestionCmd;
- private Commande laCommande;
-=======
+
+ 
  // Attribute to retrieve the value of user input
  private int qteAchetee; 
->>>>>>> 3630f575f88cf621a8402b81ab606a39f875a847
+@EJB
+ private CommandeSessionBeanLocal gestionCmd;
+ private Commande laCommande;
+
  
  public SessionManagedBeanF() throws NamingException{
      leClient =new ClientB();
