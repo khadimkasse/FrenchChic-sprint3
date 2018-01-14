@@ -45,10 +45,10 @@ and open the template in the editor.
     
     
         <tr style="background-color: #AFAFAF">
-            <td>#{sessionManagedBeanF.laLigneDeCommande.produit.nom}</td>
-            <td>#{sessionManagedBeanF.laLigneDeCommande.produit.prix} €</td>
-            <td>#{sessionManagedBeanF.laLigneDeCommande.quantite}</td>
-            <td>#{sessionManagedBeanF.laLigneDeCommande.montant} €</td>
+            <td>#{sessionManagedBeanF.laCommande.numero}</td>
+            <td>#{sessionManagedBeanF.laCommande.lignesdecommande.produit.prix} €</td>
+            <td>#{sessionManagedBeanF.laCommande.lignesdecommande.quantite}</td>
+            <td>#{sessionManagedBeanF.laCommande.lignesdecommande.montant} €</td>
         </tr>
         <tr style="background-color: #CCC">
             <td>                    </td>

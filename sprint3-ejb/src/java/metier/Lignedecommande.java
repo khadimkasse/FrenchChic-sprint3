@@ -39,7 +39,7 @@ public class Lignedecommande implements Serializable {
     @Size(min = 1, max = 20)
     //@Column(name = "PRODUIT")
     @OneToOne
-    @JoinColumn(name="NOM", referencedColumnName="NUMERO")
+   // @JoinColumn(name="NOM", referencedColumnName="NUMERO")
     private Produit produit;
    
     @Column(name = "QUANTITE")

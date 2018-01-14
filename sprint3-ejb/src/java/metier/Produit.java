@@ -33,9 +33,9 @@ public class Produit implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    
+    @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "NOM")
+    @Column(name = "NUMERO")
     private String nom;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRIX")

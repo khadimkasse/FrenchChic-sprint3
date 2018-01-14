@@ -95,10 +95,27 @@ public class SessionManagedBeanF implements Serializable {
     public void setLaLigneDeCommande(Lignedecommande laLigneDeCommande) {
         this.laLigneDeCommande = laLigneDeCommande;
     }
+
+    public Commande getLaCommande() {
+        return laCommande;
+    }
+
+    public void setLaCommande(Commande laCommande) {
+        this.laCommande = laCommande;
+    }
+    
+    
  
  public void creerLigneDeCmd(){
-     laLigneDeCommande = new Lignedecommande(produitDuJour, qteAchetee,"s");
-     //laLigneDeCommande = gestionLigneDeCommande.creerLigneDeCommande(laLigneDeCommande);
+     laLigneDeCommande = new Lignedecommande(produitDuJour, qteAchetee,produitDuJour.getNom());
+     laLigneDeCommande = gestionLigneDeCommande.creerLigneDeCommande(laLigneDeCommande);
+ }
+ 
+ public void creerCommande(){
+    laCommande.setClient(leClient);
+    laCommande.setLignesdecommande(laLigneDeCommande);
+    laCommande.setNumero(produitDuJour.getNom());
+    laCommande = gestionCmd.creerCommande(laCommande);
  }
  
  private String getParamId(String nomParam) {
