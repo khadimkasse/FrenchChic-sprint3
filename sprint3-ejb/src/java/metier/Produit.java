@@ -33,7 +33,7 @@ public class Produit implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 20)
     @Column(name = "NOM")
     private String nom;

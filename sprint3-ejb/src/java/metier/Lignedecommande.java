@@ -27,7 +27,7 @@ public class Lignedecommande implements Serializable {
     
     @Id
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 20)
     @Column(name = "NUMERO")
     private String numero;

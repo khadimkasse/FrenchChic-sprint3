@@ -27,7 +27,7 @@ public class lignesDeCmdSessionBean implements lignesDeCmdSessionBeanLocal {
 
     @Override
     public Lignedecommande creerLigneDeCommande(Lignedecommande lCmd) {
-        emLcmd.persist(lCmd);
+        //emLcmd.persist(lCmd);
         return lCmd;
     }
    

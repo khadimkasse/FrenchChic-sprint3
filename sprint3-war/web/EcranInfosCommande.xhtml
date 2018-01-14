@@ -45,16 +45,16 @@ and open the template in the editor.
     
     
         <tr style="background-color: #AFAFAF">
-            <td>Pantalon ZOuk par exemple</td>
-            <td> 10$</td>
-            <td>2</td>
-            <td>20$</td>
+            <td>#{sessionManagedBeanF.laLigneDeCommande.produit.nom}</td>
+            <td>#{sessionManagedBeanF.laLigneDeCommande.produit.prix} €</td>
+            <td>#{sessionManagedBeanF.laLigneDeCommande.quantite}</td>
+            <td>#{sessionManagedBeanF.laLigneDeCommande.montant} €</td>
         </tr>
         <tr style="background-color: #CCC">
-            <td>Pyjama ZOuk</td>
-            <td> 5 $</td>
-            <td>2</td>
-            <td>10$</td>
+            <td>                    </td>
+            <td>                   </td>
+            <td>                   </td>
+            <td>                    </td>
         </tr>
         
     
@@ -70,7 +70,7 @@ and open the template in the editor.
                 </colgroup>
                 <tr>
                     <td><h:outputText  value ="Total"/></td>
-                    <td style="background-color: #CCC">30 $</td>
+                    <td style="background-color: #CCC">#{sessionManagedBeanF.laLigneDeCommande.montant} €</td>
                     
                 </tr>
                
